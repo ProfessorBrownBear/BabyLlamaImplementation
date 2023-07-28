@@ -56,14 +56,17 @@ This baby_llama_2.py file acts as the entry point for the Baby Llama 2 interpret
 The steps involved in executing Baby Llama 2 code are as follows:
 
 Read the Baby Llama 2 code from a file specified by the file_path variable.
-Perform lexical analysis by using the Lexer class from baby_llama_2_lexer.py to tokenize the code into a list of tokens.
+Perform lexical analysis by using the Lexer class from baby_llama_2_lexer.py to tokenize the 
+code into a list of tokens.
 Perform parsing by using the Parser class from baby_llama_2_parser.py to generate the Abstract Syntax Tree (AST)
 from the tokens obtained in the previous step.
 If any parsing errors occurred, display an error message and terminate the program.
-Interpret the AST using the Interpreter class from baby_llama_2_interpreter.py to evaluate the Baby Llama 2 code and produce the output.
+Interpret the AST using the Interpreter class from baby_llama_2_interpreter.py to 
+evaluate the Baby Llama 2 code and produce the output.
 Print the output of the Baby Llama 2 code.
 Ensure you have all the required modules (baby_llama_2_lexer.py, baby_llama_2_parser.py, 
-and baby_llama_2_interpreter.py) in the same directory as the baby_llama_2.py file for the interpreter to work correctly. 
+and baby_llama_2_interpreter.py) in the same directory as the baby_llama_2.py file for 
+the interpreter to work correctly. 
 Replace "baby_llama_2_code.bl2" with the actual path to your Baby Llama 2 code file.
 
 Now, when you run baby_llama_2.py, it will read the Baby Llama 2 code from the specified file, tokenize it, 
