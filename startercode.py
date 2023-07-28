@@ -1,5 +1,7 @@
-Here is a detailed implementation of the baby_llama_2.py file, which serves as the main implementation file for the Baby Llama 2 interpreter. 
-This file will be responsible for reading Baby Llama 2 code from a file, tokenizing it, parsing it into an abstract syntax tree (AST), and then evaluating the AST to execute the Baby Llama 2 code.
+Here is a detailed implementation of the baby_llama_2.py file, which serves as the main implementation file 
+for the Baby Llama 2 interpreter. 
+This file will be responsible for reading Baby Llama 2 code from a file, tokenizing it, 
+parsing it into an abstract syntax tree (AST), and then evaluating the AST to execute the Baby Llama 2 code.
 
 # baby_llama_2.py
 
@@ -50,24 +52,30 @@ def main():
 
 if __name__ == "__main__":
     main()
-This baby_llama_2.py file acts as the entry point for the Baby Llama 2 interpreter. The steps involved in executing Baby Llama 2 code are as follows:
+This baby_llama_2.py file acts as the entry point for the Baby Llama 2 interpreter. 
+The steps involved in executing Baby Llama 2 code are as follows:
 
 Read the Baby Llama 2 code from a file specified by the file_path variable.
 Perform lexical analysis by using the Lexer class from baby_llama_2_lexer.py to tokenize the code into a list of tokens.
-Perform parsing by using the Parser class from baby_llama_2_parser.py to generate the Abstract Syntax Tree (AST) from the tokens obtained in the previous step.
+Perform parsing by using the Parser class from baby_llama_2_parser.py to generate the Abstract Syntax Tree (AST)
+from the tokens obtained in the previous step.
 If any parsing errors occurred, display an error message and terminate the program.
 Interpret the AST using the Interpreter class from baby_llama_2_interpreter.py to evaluate the Baby Llama 2 code and produce the output.
 Print the output of the Baby Llama 2 code.
-Ensure you have all the required modules (baby_llama_2_lexer.py, baby_llama_2_parser.py, and baby_llama_2_interpreter.py) in the same directory as the baby_llama_2.py file for the interpreter to work correctly. 
+Ensure you have all the required modules (baby_llama_2_lexer.py, baby_llama_2_parser.py, 
+and baby_llama_2_interpreter.py) in the same directory as the baby_llama_2.py file for the interpreter to work correctly. 
 Replace "baby_llama_2_code.bl2" with the actual path to your Baby Llama 2 code file.
 
-Now, when you run baby_llama_2.py, it will read the Baby Llama 2 code from the specified file, tokenize it, parse it, and execute it, displaying the output of the Baby Llama 2 code.
+Now, when you run baby_llama_2.py, it will read the Baby Llama 2 code from the specified file, tokenize it, 
+parse it, and execute it, displaying the output of the Baby Llama 2 code.
 
 ////////////////////////////////////////////////////////
 
 
-Implementation of the baby_llama_2_lexer.py file, which serves as the lexical analysis module for the Baby Llama 2 interpreter. 
-This file will be responsible for tokenizing the input Baby Llama 2 code into individual tokens that represent numbers, variables, and operators.
+Implementation of the baby_llama_2_lexer.py file, which serves as the lexical analysis module for
+the Baby Llama 2 interpreter. 
+This file will be responsible for tokenizing the input Baby Llama 2 code into individual tokens that 
+represent numbers, variables, and operators.
 
 # baby_llama_2_lexer.py
 
@@ -161,7 +169,8 @@ class Lexer:
                 break
         return tokens
 
-In this baby_llama_2_lexer.py file, we define a Token class to represent individual tokens with a type and a value. The Lexer class is responsible for tokenizing the Baby Llama 2 code.
+In this baby_llama_2_lexer.py file, we define a Token class to represent individual tokens with a 
+type and a value. The Lexer class is responsible for tokenizing the Baby Llama 2 code.
 
 The Lexer class contains the following methods:
 
@@ -172,16 +181,19 @@ get_next_token: Gets the next token from the input text based on the current cha
 get_number_token: Gets a token for a number (integer) in the input text.
 get_identifier_token: Gets a token for an identifier (variable name) in the input text.
 tokenize: Tokenizes the entire input text and returns a list of tokens.
-The get_next_token method is the heart of the lexer. It examines the current character and decides what type of token it represents. The lexer can handle numbers, identifiers (variable names), and various operators (+, -, *, /).
+The get_next_token method is the heart of the lexer. It examines the current character and decides 
+what type of token it represents. The lexer can handle numbers, identifiers (variable names), and various operators (+, -, *, /).
 
 When you run the lexer, it will read the Baby Llama 2 code and convert it into a list of tokens. 
-These tokens will later be used by the parser to construct the Abstract Syntax Tree (AST) and evaluate the Baby Llama 2 code.
+These tokens will later be used by the parser to construct the Abstract Syntax Tree (AST) 
+and evaluate the Baby Llama 2 code.
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-Below is a detailed implementation of the baby_llama_2_parser.py file, which serves as the parsing module for the Baby Llama 2 interpreter. 
+Below is a detailed implementation of the baby_llama_2_parser.py file, which serves as 
+the parsing module for the Baby Llama 2 interpreter. 
 This file will be responsible for generating the Abstract Syntax Tree (AST) from the tokens obtained by the lexer.
 
 # baby_llama_2_parser.py
@@ -263,7 +275,8 @@ class NumberNode:
 class VariableNode:
     def __init__(self, name):
         self.name = name
-In this baby_llama_2_parser.py file, we define a Parser class responsible for generating the Abstract Syntax Tree (AST) from the tokens obtained by the lexer. 
+In this baby_llama_2_parser.py file, we define a Parser class responsible for generating the 
+Abstract Syntax Tree (AST) from the tokens obtained by the lexer. 
 Additionally, we define three classes (BinOpNode, NumberNode, and VariableNode) to represent nodes in the AST.
 
 The Parser class contains the following methods:
@@ -275,18 +288,26 @@ factor: Parses a factor, which can be either a number or a variable (identifier)
 term: Parses a term, which consists of factors combined with multiplication or division operators.
 expr: Parses an expression, which consists of terms combined with addition or subtraction operators.
 parse: Initiates parsing and returns the root node of the AST.
-The BinOpNode class represents binary operations (addition, subtraction, multiplication, and division) in the AST. The NumberNode class represents numeric values, and the VariableNode class represents variable names.
+The BinOpNode class represents binary operations (addition, subtraction, multiplication, 
+and division) in the AST. The NumberNode class represents numeric values, and the 
+VariableNode class represents variable names.
 
-The parser follows the rules of operator precedence, meaning multiplication and division take precedence over addition and subtraction. The parser will generate the correct hierarchical structure in the AST, allowing the interpreter to correctly evaluate Baby Llama 2 code.
+The parser follows the rules of operator precedence, meaning multiplication and 
+division take precedence over addition and subtraction. The parser will generate 
+    the correct hierarchical structure in the AST, allowing the interpreter to 
+correctly evaluate Baby Llama 2 code.
 
-When you run the parser, it will generate the Abstract Syntax Tree (AST) for the Baby Llama 2 code, and this AST will be used by the interpreter to evaluate the Baby Llama 2 code.
+When you run the parser, it will generate the Abstract Syntax Tree (AST) for the Baby Llama 2 
+code, and this AST will be used by the interpreter to evaluate the Baby Llama 2 code.
 
 
 ///////////////////////////////////////////////////////////////////////
 
-Below is a detailed implementation of the baby_llama_2_ast.py file, which serves as the Abstract Syntax Tree (AST) module for the Baby Llama 2 interpreter. 
+Below is a detailed implementation of the baby_llama_2_ast.py file, which serves as the 
+Abstract Syntax Tree (AST) module for the Baby Llama 2 interpreter. 
 
-This file will be responsible for defining the classes representing nodes in the AST and evaluating the AST nodes to execute the Baby Llama 2 code.
+This file will be responsible for defining the classes representing nodes in the AST and evaluating 
+the AST nodes to execute the Baby Llama 2 code.
 
 # baby_llama_2_ast.py
 
@@ -362,28 +383,36 @@ if __name__ == "__main__":
     # Evaluate the AST and execute Baby Llama 2 code
     result = interpreter.visit(ast)
     print(result)  # Output: 25 (5 * (2 + 3))
-In this baby_llama_2_ast.py file, we define three classes representing nodes in the Abstract Syntax Tree (AST): BinOpNode, NumberNode, and VariableNode. 
+In this baby_llama_2_ast.py file, we define three classes representing nodes in the Abstract Syntax Tree (AST): 
+BinOpNode, NumberNode, and VariableNode. 
 The Interpreter class is responsible for visiting the AST nodes and evaluating the Baby Llama 2 code.
 
 The BinOpNode class represents binary operations (addition, subtraction, multiplication, and division) in the AST. 
 The NumberNode class represents numeric values, and the VariableNode class represents variable names.
 
-The Interpreter class contains a visit method that takes an AST node and dispatches the evaluation to the appropriate method based on the node type.
+The Interpreter class contains a visit method that takes an AST node and dispatches the evaluation to the 
+appropriate method based on the node type.
 
-The visit_bin_op method evaluates binary operations. It recursively evaluates the left and right children of the binary operation node and performs the corresponding arithmetic operation.
+The visit_bin_op method evaluates binary operations. It recursively evaluates the left and right children of the 
+binary operation node and performs the corresponding arithmetic operation.
 
-The visit_variable method handles variable nodes. For simplicity, we assume that variables have been assigned beforehand and their values are stored in a dictionary called variables. 
+The visit_variable method handles variable nodes. For simplicity, we assume that variables have been assigned 
+beforehand and their values are stored in a dictionary called variables. 
 Please replace this dictionary with your actual variable storage mechanism.
 
-At the end of the file, there is a small test code snippet to demonstrate the usage of the AST and the interpreter. It creates an example AST and evaluates it using the Interpreter class.
+At the end of the file, there is a small test code snippet to demonstrate the usage of the AST and the 
+interpreter. It creates an example AST and evaluates it using the Interpreter class.
 
 When you run the baby_llama_2_ast.py file, it will evaluate the given AST and execute the Baby Llama 2 code, 
-producing the correct output. In your main implementation file (baby_llama_2.py), you will use this AST and interpreter to execute the Baby Llama 2 code provided by the user.
+producing the correct output. In your main implementation file (baby_llama_2.py), you will use this AST and 
+interpreter to execute the Baby Llama 2 code provided by the user.
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-Below is a detailed implementation of the baby_llama_2_interpreter.py file, which serves as the interpreter module for the Baby Llama 2 interpreter. This file will be responsible for evaluating the AST nodes to execute the Baby Llama 2 code.
+Below is a detailed implementation of the baby_llama_2_interpreter.py file, which serves as the interpreter 
+module for the Baby Llama 2 interpreter. This file will be responsible for evaluating the AST nodes to 
+execute the Baby Llama 2 code.
 
 python
 Copy code
@@ -441,7 +470,8 @@ class Interpreter:
 
         return self.evaluate(ast)
 
-In this baby_llama_2_interpreter.py file, we define the Interpreter class, which is responsible for visiting the AST nodes and evaluating the Baby Llama 2 code.
+In this baby_llama_2_interpreter.py file, we define the Interpreter class, which is responsible for visiting 
+the AST nodes and evaluating the Baby Llama 2 code.
 
 The Interpreter class contains the following methods:
 
@@ -449,23 +479,21 @@ __init__: Initializes the interpreter with an empty dictionary to store variable
 
 visit: Takes an AST node and dispatches the evaluation to the appropriate method based on the node type.
 
-visit_bin_op: Evaluates binary operations. It recursively evaluates the left and right children of the binary operation node and performs the corresponding arithmetic operation.
+visit_bin_op: Evaluates binary operations. It recursively evaluates the left and right children of the binary 
+operation node and performs the corresponding arithmetic operation.
 
 visit_variable: Handles variable nodes. It looks up the value of the variable in the self.variables dictionary.
 
 evaluate: Evaluates the entire AST and returns the result.
 
-interpret: A convenience method that takes the Baby Llama 2 code as input, performs lexical analysis, parsing, and evaluates the AST using the above methods, and returns the result.
+interpret: A convenience method that takes the Baby Llama 2 code as input, performs lexical analysis, 
+parsing, and evaluates the AST using the above methods, and returns the result.
 
-In the visit_variable method, we store and retrieve variable values in the self.variables dictionary. During interpretation, the interpreter maintains the state of the variables, 
+In the visit_variable method, we store and retrieve variable values in the self.variables dictionary. 
+During interpretation, the interpreter maintains the state of the variables, 
 allowing us to assign and retrieve variable values during the evaluation of Baby Llama 2 code.
 
-When you run the interpreter, it will take Baby Llama 2 code as input, tokenize it, parse it to generate the AST, and finally evaluate the AST using the Interpreter class. 
-The interpreter will handle arithmetic operations and variable assignments, and it can correctly evaluate and execute Baby Llama 2 code.
-
-
-
-
-
-
-
+When you run the interpreter, it will take Baby Llama 2 code as input, tokenize it, parse it to generate 
+the AST, and finally evaluate the AST using the Interpreter class. 
+The interpreter will handle arithmetic operations and variable assignments, and it can correctly evaluate 
+and execute Baby Llama 2 code.
