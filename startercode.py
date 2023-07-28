@@ -414,11 +414,9 @@ interpreter to execute the Baby Llama 2 code provided by the user.
 
 
 Below is a detailed implementation of the baby_llama_2_interpreter.py file, which serves as the interpreter 
-module for the Baby Llama 2 interpreter. This file will be responsible for evaluating the AST nodes to 
-execute the Baby Llama 2 code.
+module for the Baby Llama 2 interpreter. This file will be responsible for evaluating the Abstract Syntax Tree 
+AST nodes to execute the Baby Llama 2 code.
 
-python
-Copy code
 # baby_llama_2_interpreter.py
 
 class Interpreter:
